@@ -1,9 +1,26 @@
 //get user choice and make it case unsensitive (humanChoice)
 const humanChoice = prompt("choose rock, paper, or scissors:").toLowerCase();
-humanChoice;
 
 //get computer choice with a randomizer (computerChoice)
+function getComputerChoice() {
+  const choices = ["rock", "paper", "scissors"];
+  return choices[Math.floor(Math.random() * choices.length)];
+}
 
+const computerChoice = getComputerChoice();
+
+// function getComputerChoice() {
+//   let randomizer = Math.random();
+
+//   if (randomizer < 0.33) {
+//     computerChoice = "rock";
+//   } else if (randomizer >= 0.33 && randomizer < 0.66) {
+//     computerChoice = "paper";
+//   } else {
+//     computerChoice = "scissors";
+//   }
+//   return computerChoice;
+// }
 //compare humanChoice with computerChoice and decide the winner
 //track scores and store them in two variables (humanScore, computerScore)
 
