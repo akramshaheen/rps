@@ -1,26 +1,25 @@
 //Get user choice
 function getHumanChoice() {
   while (true) {
-    let humanChoice = prompt("choose Rock, Paper, or Scissors:");
+    let hChoice = prompt("choose Rock, Paper, or Scissors:");
 
-    if (humanChoice === null) {
+    if (hChoice === null) {
       alert("Game Over!");
       break;
     }
 
-    humanChoice =
-      humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1).toLowerCase();
+    hChoice = hChoice.charAt(0).toUpperCase() + hChoice.slice(1).toLowerCase();
 
-    if (humanChoice === "") {
+    if (hChoice === "") {
       alert("You didn't type anything!");
     } else if (
-      humanChoice !== "Rock" &&
-      humanChoice !== "Paper" &&
-      humanChoice !== "Scissors"
+      hChoice !== "Rock" &&
+      hChoice !== "Paper" &&
+      hChoice !== "Scissors"
     ) {
       alert("Invalid choice!");
     } else {
-      break;
+      return hChoice;
     }
   }
 }
@@ -30,17 +29,33 @@ function getComputerChoice() {
   const choices = ["Rock", "Paper", "Scissors"];
   return choices[Math.floor(Math.random() * choices.length)];
 }
-const computerChoice = getComputerChoice();
 
-//compare humanChoice with computerChoice and decide the winner
-//track scores and store them in two variables (humanScore, computerScore)
+function playGame() {
+  const humanChoice = getHumanChoice();
+  const computerChoice = getComputerChoice();
 
-//alert what each player chose, who won the round, and the current score all in one alert like this:
+  //alert what each player chose
+  alert(`You chose ${humanChoice} and the computer chose ${computerChoice}.`);
 
-//you chose ... and the computer chose ...
-//X won this round.
-//The score is => You: ... / The computer: ...
+  let humanScore = 0;
+  let computerScore = 0;
 
-//play the game for 5 rounds
+  //compare humanChoice with computerChoice and decide the winner
+  if (
+    (humanChoice === "Rock" && computerChoice === "Scissors") ||
+    (humanChoice === "Scissors" && computerChoice === "Paper") ||
+    (humanChoice === "Paper" && computerChoice === "Rock")
+  ) {
+    alert(`You won this round!`);
+    humanScore++;
+  } else {
+    alert(`You lost this round!`);
+    computerScore++;
+  }
+  //alert the score
+  alert(`The score is => You: ${humanScore} | The computer: ${computerScore}`);
+  //play the game for 5 rounds
+}
 
+playGame();
 //compare humanScore and computerScore then alert; The winner is: ...
