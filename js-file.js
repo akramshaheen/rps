@@ -1,5 +1,6 @@
 //get user choice and make it case unsensitive (humanChoice)
-//prompt choose rock, paper, or scissors:
+const humanChoice = prompt("choose rock, paper, or scissors:").toLowerCase();
+humanChoice;
 
 //get computer choice with a randomizer (computerChoice)
 
