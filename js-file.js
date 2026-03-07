@@ -1,14 +1,33 @@
-//get user choice and make it case unsensitive (humanChoice)
-let humanChoice = prompt("choose rock, paper, or scissors:");
-humanChoice =
-  humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1).toLowerCase();
+//get user choice
+while (true) {
+  let humanChoice = prompt("choose Rock, Paper, or Scissors:");
 
-//get computer choice with a randomizer (computerChoice)
+  if (humanChoice === null) {
+    alert("Game Over!");
+    break;
+  }
+
+  humanChoice =
+    humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1).toLowerCase();
+
+  if (humanChoice === "") {
+    alert("You didn't type anything!");
+  } else if (
+    humanChoice !== "Rock" &&
+    humanChoice !== "Paper" &&
+    humanChoice !== "Scissors"
+  ) {
+    alert("Invalid choice!");
+  } else {
+    break;
+  }
+}
+
+//get computer choice
 function getComputerChoice() {
   const choices = ["Rock", "Paper", "Scissors"];
   return choices[Math.floor(Math.random() * choices.length)];
 }
-
 const computerChoice = getComputerChoice();
 
 //compare humanChoice with computerChoice and decide the winner
