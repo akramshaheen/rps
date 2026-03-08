@@ -65,31 +65,29 @@ function playGame(humanChoice, computerChoice, round) {
   }
 }
 
-for (let i = 1; i < 6; i++) {
-  const humanChoice = getHumanChoice(i);
-  const computerChoice = getComputerChoice();
+// for (let i = 1; i < 6; i++) {
+//   const humanChoice = getHumanChoice(i);
+//   const computerChoice = getComputerChoice();
 
-  playGame(humanChoice, computerChoice, i);
+//   playGame(humanChoice, computerChoice, i);
 
-  if ((humanChoice === null && i > 1) || (humanChoice !== null && i === 5)) {
-    alert(
-      `Final score is => You: ${humanScore} | The computer: ${computerScore}`,
-    );
+//   if ((humanChoice === null && i > 1) || (humanChoice !== null && i === 5)) {
+//     alert(
+//       `Final score is => You: ${humanScore} | The computer: ${computerScore}`,
+//     );
 
-    if (humanScore > computerScore) {
-      alert("You won the game! Nice!");
-    } else if (humanScore < computerScore) {
-      alert("You lost the game! Too bad!");
-    } else if (humanScore === computerScore) {
-      alert("The game ended in a draw.");
-    }
+//     if (humanScore > computerScore) {
+//       alert("You won the game! Nice!");
+//     } else if (humanScore < computerScore) {
+//       alert("You lost the game! Too bad!");
+//     } else if (humanScore === computerScore) {
+//       alert("The game ended in a draw.");
+//     }
 
-    break;
-  }
+//     break;
+//   }
 
-  if (humanChoice === null) {
-    break;
-  }
-}
-
-//this is a test to see where this commit will go, either main or rps-ui
+//   if (humanChoice === null) {
+//     break;
+//   }
+// }
