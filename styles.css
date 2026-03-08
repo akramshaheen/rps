@@ -11,7 +11,7 @@ body {
 
 .main-container {
   margin-top: 20vh;
-  border: solid 4px #63032f;
+  border: solid 7px #63032f;
   padding: 20px;
   border-radius: 20px;
   display: flex;
@@ -22,6 +22,22 @@ body {
 
 h1 {
   font-size: 60px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   color: #63032f;
+}
+
+.score-board {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.human-score,
+.computer-score {
+  color: #63032f;
+  font-weight: 600;
+  font-size: 20px;
+  border: solid 3px #63032f;
+  padding: 5px 7px;
+  border-radius: 8px;
 }
