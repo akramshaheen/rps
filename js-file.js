@@ -5,7 +5,7 @@ function getHumanChoice() {
 
     if (hChoice === null) {
       alert("Game Over!");
-      break;
+      return null;
     }
 
     hChoice = hChoice.charAt(0).toUpperCase() + hChoice.slice(1).toLowerCase();
@@ -32,6 +32,10 @@ function getComputerChoice() {
 
 function playGame() {
   const humanChoice = getHumanChoice();
+  if (humanChoice === null) {
+    return;
+  }
+
   const computerChoice = getComputerChoice();
 
   //alert what each player chose
@@ -48,6 +52,8 @@ function playGame() {
   ) {
     alert(`You won this round!`);
     humanScore++;
+  } else if (humanChoice === computerChoice) {
+    alert("It's a tie!");
   } else {
     alert(`You lost this round!`);
     computerScore++;
