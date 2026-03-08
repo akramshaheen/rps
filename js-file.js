@@ -72,6 +72,22 @@ for (i = 1; i < 6; i++) {
 
   playGame();
 
+  if (humanChoice === null && i > 1) {
+    alert(
+      `Final score is => You: ${humanScore} | The computer: ${computerScore}`,
+    );
+
+    if (humanScore > computerScore) {
+      alert("You won the game! Yay!");
+    } else if (humanScore < computerScore) {
+      alert("You lost the game! Boo!");
+    } else if (humanScore === computerScore) {
+      alert("The game ended in a draw.");
+    }
+
+    break;
+  }
+
   if (humanChoice === null) {
     break;
   }
