@@ -34,43 +34,43 @@ let humanScore = 0;
 let computerScore = 0;
 let i;
 
+function playGame(humanChoice, computerChoice) {
+  if (humanChoice === null) {
+    return;
+  }
+
+  //alert what each player chose
+  alert(
+    `You chose "${humanChoice}" and the computer chose "${computerChoice}".`,
+  );
+
+  //compare humanChoice with computerChoice and decide the winner
+  if (
+    (humanChoice === "Rock" && computerChoice === "Scissors") ||
+    (humanChoice === "Scissors" && computerChoice === "Paper") ||
+    (humanChoice === "Paper" && computerChoice === "Rock")
+  ) {
+    alert(`You won this round!`);
+    humanScore++;
+  } else if (humanChoice === computerChoice) {
+    alert("It's a tie!");
+  } else {
+    alert(`You lost this round!`);
+    computerScore++;
+  }
+  //alert the score
+  if (i < 5) {
+    alert(
+      `The score is => You: ${humanScore} | The computer: ${computerScore}`,
+    );
+  }
+}
+
 for (i = 1; i < 6; i++) {
   const humanChoice = getHumanChoice();
   const computerChoice = getComputerChoice();
 
-  function playGame() {
-    if (humanChoice === null) {
-      return;
-    }
-
-    //alert what each player chose
-    alert(
-      `You chose "${humanChoice}" and the computer chose "${computerChoice}".`,
-    );
-
-    //compare humanChoice with computerChoice and decide the winner
-    if (
-      (humanChoice === "Rock" && computerChoice === "Scissors") ||
-      (humanChoice === "Scissors" && computerChoice === "Paper") ||
-      (humanChoice === "Paper" && computerChoice === "Rock")
-    ) {
-      alert(`You won this round!`);
-      humanScore++;
-    } else if (humanChoice === computerChoice) {
-      alert("It's a tie!");
-    } else {
-      alert(`You lost this round!`);
-      computerScore++;
-    }
-    //alert the score
-    if (i < 5) {
-      alert(
-        `The score is => You: ${humanScore} | The computer: ${computerScore}`,
-      );
-    }
-  }
-
-  playGame();
+  playGame(humanChoice, computerChoice);
 
   if (humanChoice === null && i > 1) {
     alert(
@@ -78,9 +78,9 @@ for (i = 1; i < 6; i++) {
     );
 
     if (humanScore > computerScore) {
-      alert("You won the game! Yay!");
+      alert("You won the game! Nice!");
     } else if (humanScore < computerScore) {
-      alert("You lost the game! That's gay!");
+      alert("You lost the game! Too bad!");
     } else if (humanScore === computerScore) {
       alert("The game ended in a draw.");
     }
@@ -98,9 +98,9 @@ for (i = 1; i < 6; i++) {
     );
 
     if (humanScore > computerScore) {
-      alert("You won the game! Yay!");
+      alert("You won the game! Nice!");
     } else if (humanScore < computerScore) {
-      alert("You lost the game! That's gay!");
+      alert("You lost the game! Too bad!");
     } else if (humanScore === 0 && computerScore === 0) {
       alert("Five ties in a row?! That's a 0.41% chance (1 in 243).");
     } else {
