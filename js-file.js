@@ -1,7 +1,7 @@
 //Get user choice
-function getHumanChoice() {
+function getHumanChoice(round) {
   while (true) {
-    let hChoice = prompt(`Round ${i}: choose Rock, Paper, or Scissors:`);
+    let hChoice = prompt(`Round ${round}: choose Rock, Paper, or Scissors:`);
 
     if (hChoice === null) {
       alert("Game Over!");
@@ -32,9 +32,8 @@ function getComputerChoice() {
 
 let humanScore = 0;
 let computerScore = 0;
-let i;
 
-function playGame(humanChoice, computerChoice) {
+function playGame(humanChoice, computerChoice, round) {
   if (humanChoice === null) {
     return;
   }
@@ -59,20 +58,20 @@ function playGame(humanChoice, computerChoice) {
     computerScore++;
   }
   //alert the score
-  if (i < 5) {
+  if (round < 5) {
     alert(
       `The score is => You: ${humanScore} | The computer: ${computerScore}`,
     );
   }
 }
 
-for (i = 1; i < 6; i++) {
-  const humanChoice = getHumanChoice();
+for (let i = 1; i < 6; i++) {
+  const humanChoice = getHumanChoice(i);
   const computerChoice = getComputerChoice();
 
-  playGame(humanChoice, computerChoice);
+  playGame(humanChoice, computerChoice, i);
 
-  if (humanChoice === null && i > 1) {
+  if ((humanChoice === null && i > 1) || (humanChoice !== null && i === 5)) {
     alert(
       `Final score is => You: ${humanScore} | The computer: ${computerScore}`,
     );
@@ -90,21 +89,5 @@ for (i = 1; i < 6; i++) {
 
   if (humanChoice === null) {
     break;
-  }
-
-  if (humanChoice !== null && i === 5) {
-    alert(
-      `Final score is => You: ${humanScore} | The computer: ${computerScore}`,
-    );
-
-    if (humanScore > computerScore) {
-      alert("You won the game! Nice!");
-    } else if (humanScore < computerScore) {
-      alert("You lost the game! Too bad!");
-    } else if (humanScore === 0 && computerScore === 0) {
-      alert("Five ties in a row?! That's a 0.41% chance (1 in 243).");
-    } else {
-      alert("The game ended in a draw.");
-    }
   }
 }
