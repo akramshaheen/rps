@@ -80,7 +80,7 @@ for (i = 1; i < 6; i++) {
     if (humanScore > computerScore) {
       alert("You won the game! Yay!");
     } else if (humanScore < computerScore) {
-      alert("You lost the game! Boo!");
+      alert("You lost the game! That's gay!");
     } else if (humanScore === computerScore) {
       alert("The game ended in a draw.");
     }
