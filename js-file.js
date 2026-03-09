@@ -1,28 +1,18 @@
-//Get user choice
-function getHumanChoice(round) {
-  while (true) {
-    let hChoice = prompt(`Round ${round}: choose Rock, Paper, or Scissors:`);
-
-    if (hChoice === null) {
-      alert("Game Over!");
-      return null;
-    }
-
-    hChoice = hChoice.charAt(0).toUpperCase() + hChoice.slice(1).toLowerCase();
-
-    if (hChoice === "") {
-      alert("You didn't type anything!");
-    } else if (
-      hChoice !== "Rock" &&
-      hChoice !== "Paper" &&
-      hChoice !== "Scissors"
-    ) {
-      alert("Invalid choice!");
-    } else {
-      return hChoice;
-    }
+//Call the playGame function if a move was selected
+const playerSelection = document.querySelector(".player-selection");
+playerSelection.addEventListener("click", (e) => {
+  if (e.target.matches("#rock")) {
+    playGame("Rock");
   }
-}
+
+  if (e.target.matches("#paper")) {
+    playGame("Paper");
+  }
+
+  if (e.target.matches("#scissors")) {
+    playGame("Scissors");
+  }
+});
 
 //Get computer choice
 function getComputerChoice() {
@@ -30,18 +20,18 @@ function getComputerChoice() {
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
-let humanScore = 0;
-let computerScore = 0;
+const humanScore = document.querySelector(".human-score");
+let humanScoreNum = 0;
 
-function playGame(humanChoice, computerChoice, round) {
-  if (humanChoice === null) {
-    return;
-  }
+const computerScore = document.querySelector(".computer-score");
+let computerScoreNum = 0;
 
-  //alert what each player chose
-  alert(
-    `You chose "${humanChoice}" and the computer chose "${computerChoice}".`,
-  );
+const versus = document.querySelector(".versus");
+const roundResult = document.querySelector(".round-result");
+
+function playGame(humanChoice) {
+  //get the computer choice
+  const computerChoice = getComputerChoice();
 
   //compare humanChoice with computerChoice and decide the winner
   if (
@@ -49,25 +39,26 @@ function playGame(humanChoice, computerChoice, round) {
     (humanChoice === "Scissors" && computerChoice === "Paper") ||
     (humanChoice === "Paper" && computerChoice === "Rock")
   ) {
-    alert(`You won this round!`);
-    humanScore++;
+    humanScoreNum++;
+    humanScore.textContent = `Player: ${humanScoreNum}`;
+    versus.textContent = `${humanChoice} vs ${computerChoice}`;
+    roundResult.textContent = `You won this round!`;
   } else if (humanChoice === computerChoice) {
-    alert("It's a tie!");
+    versus.textContent = `${humanChoice} vs ${computerChoice}`;
+    roundResult.textContent = `It's a tie!`;
   } else {
-    alert(`You lost this round!`);
-    computerScore++;
-  }
-  //alert the score
-  if (round < 5) {
-    alert(
-      `The score is => You: ${humanScore} | The computer: ${computerScore}`,
-    );
+    computerScoreNum++;
+    computerScore.textContent = `Computer: ${computerScoreNum}`;
+    versus.textContent = `${humanChoice} vs ${computerChoice}`;
+    roundResult.textContent = `You lost this round!`;
   }
 }
 
 // for (let i = 1; i < 6; i++) {
-//   const humanChoice = getHumanChoice(i);
+//
 //   const computerChoice = getComputerChoice();
+
+//   here was the player choice function call
 
 //   playGame(humanChoice, computerChoice, i);
 

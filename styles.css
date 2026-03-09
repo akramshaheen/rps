@@ -78,9 +78,14 @@ h1 {
   transform: scale(1.05);
 }
 
-.round-result {
-  font-size: 22px;
+.game-info {
+  text-align: center;
   margin-bottom: 15px;
+}
+
+.versus,
+.round-result {
+  font-size: 30px;
 }
 
 .play-again {
