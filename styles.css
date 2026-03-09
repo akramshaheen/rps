@@ -60,17 +60,41 @@ h1 {
   border-radius: 8px;
   width: 140px;
   padding: 25px 0px;
+  transition: ease 0.2s;
+  cursor: pointer;
+}
+
+#rock:hover,
+#paper:hover,
+#scissors:hover {
+  color: white;
+  background-color: #63032f;
+  transition: ease 0.2s;
+}
+
+#rock:active,
+#paper:active,
+#scissors:active {
+  transform: scale(1.05);
 }
 
 .round-result {
   font-size: 22px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .play-again {
   color: white;
   background-color: #63032f;
+  transition: ease 0.2s;
   border-radius: 8px;
-  padding: 10px 22px;
-  border: 0px;
+  padding: 9px 20px;
+  border: solid 3px #63032f;
+  cursor: pointer;
+}
+
+.play-again:hover {
+  color: #63032f;
+  background-color: white;
+  transition: ease 0.2s;
 }
