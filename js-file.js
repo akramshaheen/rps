@@ -29,7 +29,49 @@ let computerScoreNum = 0;
 const versus = document.querySelector(".versus");
 const roundResult = document.querySelector(".round-result");
 
+// function gameReset(isTrue) {
+//
+// }
+
 function playGame(humanChoice) {
+  const isGameOver = humanScoreNum === 5 || computerScoreNum === 5;
+
+  if (isGameOver) {
+    versus.textContent = "GAME OVER";
+
+    if (humanScoreNum > computerScoreNum) {
+      roundResult.textContent = "You won. Nice!";
+    } else {
+      roundResult.textContent = "You lost. Too bad!";
+    }
+
+    const playAgain = document.querySelector(".play-again");
+    playAgain.classList.add("active");
+
+    const playerSelectionBtn = document.querySelectorAll(".play-btn");
+    playerSelectionBtn.forEach((btn) => {
+      btn.classList.remove("active");
+    });
+
+    playAgain.addEventListener("click", () => {
+      humanScoreNum = 0;
+      computerScoreNum = 0;
+
+      versus.textContent = "You vs Computer";
+      roundResult.textContent = "First to five wins";
+
+      humanScore.textContent = `Player: ${humanScoreNum}`;
+      computerScore.textContent = `Computer: ${computerScoreNum}`;
+
+      playAgain.classList.remove("active");
+      playerSelectionBtn.forEach((btn) => {
+        btn.classList.add("active");
+      });
+    });
+
+    return;
+  }
+
   //get the computer choice
   const computerChoice = getComputerChoice();
 
@@ -53,32 +95,8 @@ function playGame(humanChoice) {
     roundResult.textContent = `You lost this round!`;
   }
 }
-
-// for (let i = 1; i < 6; i++) {
 //
-//   const computerChoice = getComputerChoice();
-
-//   here was the player choice function call
-
-//   playGame(humanChoice, computerChoice, i);
-
-//   if ((humanChoice === null && i > 1) || (humanChoice !== null && i === 5)) {
-//     alert(
-//       `Final score is => You: ${humanScore} | The computer: ${computerScore}`,
-//     );
-
-//     if (humanScore > computerScore) {
-//       alert("You won the game! Nice!");
-//     } else if (humanScore < computerScore) {
-//       alert("You lost the game! Too bad!");
-//     } else if (humanScore === computerScore) {
-//       alert("The game ended in a draw.");
-//     }
-
-//     break;
-//   }
-
-//   if (humanChoice === null) {
-//     break;
-//   }
-// }
+//
+//
+//
+//add three variable: tie, won, and lost and give each one a color. place them inside the round-result
