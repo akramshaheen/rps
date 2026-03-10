@@ -125,3 +125,22 @@ h1 {
   background-color: #63032f;
   transition: ease 0.2s;
 }
+
+.won,
+.lost,
+.tie {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.won {
+  color: rgb(0, 147, 0);
+}
+
+.lost {
+  color: red;
+}
+
+.tie {
+  color: rgb(45, 80, 235);
+}
