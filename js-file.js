@@ -2,28 +2,28 @@ const playerSelection = document.querySelector(".player-selection");
 
 const mainCallBack = (e) => {
   if (e.target.matches("#rock")) {
-    playGame("Rock");
+    playGame("✊");
   }
 
   if (e.target.matches("#paper")) {
-    playGame("Paper");
+    playGame("✋");
   }
 
   if (e.target.matches("#scissors")) {
-    playGame("Scissors");
+    playGame("✌");
   }
 };
 
 playerSelection.addEventListener("click", mainCallBack);
 
 function getComputerChoice() {
-  const choices = ["Rock", "Paper", "Scissors"];
+  const choices = ["✊", "✋", "✌"];
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
 function GameOverState(isScoreFive) {
   if (isScoreFive) {
-    versus.textContent = "GAME OVER";
+    playText.textContent = "GAME OVER";
 
     if (humanScoreNum > computerScoreNum) {
       roundResult.innerHTML = `You <span class="won">Won</span>`;
@@ -49,6 +49,8 @@ let humanScoreNum = 0;
 const computerScore = document.querySelector(".computer-score");
 let computerScoreNum = 0;
 
+const playText = document.querySelector(".play-text");
+
 const versus = document.querySelector(".versus");
 const roundResult = document.querySelector(".round-result");
 
@@ -61,9 +63,9 @@ function playGame(humanChoice) {
   const computerChoice = getComputerChoice();
 
   if (
-    (humanChoice === "Rock" && computerChoice === "Scissors") ||
-    (humanChoice === "Scissors" && computerChoice === "Paper") ||
-    (humanChoice === "Paper" && computerChoice === "Rock")
+    (humanChoice === "✊" && computerChoice === "✌") ||
+    (humanChoice === "✌" && computerChoice === "✋") ||
+    (humanChoice === "✋" && computerChoice === "✊")
   ) {
     humanScoreNum++;
     humanScore.textContent = `Player: ${humanScoreNum}`;
@@ -87,6 +89,7 @@ function playGame(humanChoice) {
     humanScoreNum = 0;
     computerScoreNum = 0;
 
+    playText.textContent = "Choose your move!";
     versus.textContent = "You vs Computer";
     roundResult.textContent = "First to five wins";
 
