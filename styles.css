@@ -16,8 +16,6 @@ body {
   border: solid 7px #63032f;
   padding: 20px;
   border-radius: 20px;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   background-color: #e4e5f9;
 }
@@ -29,12 +27,14 @@ h1 {
 
 .score-board {
   display: flex;
+  justify-content: center;
   gap: 10px;
   margin-bottom: 30px;
 }
 
 .human-score,
 .computer-score {
+  background-color: white;
   font-weight: 600;
   border: solid 3px #63032f;
   border-radius: 8px;
@@ -149,4 +149,26 @@ h1 {
 
 .tie {
   color: rgb(45, 80, 235);
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 55px;
+  }
+
+  .main-container {
+    width: 83%;
+  }
+
+  .play-btn.active,
+  .play-btn,
+  .play-btn.active:active,
+  .play-btn.active:hover {
+    font-size: 40px;
+    width: 100px;
+  }
+
+  .versus {
+    font-size: 40px;
+  }
 }
